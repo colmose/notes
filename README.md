@@ -15,17 +15,17 @@ Usage:
 
 ### Examples
 
-** Single line note into sample.md **
+**Single line note into sample.md**
 ```bash
   notes -f sample.md the note I want to write
 ```
   
-** pipe this function's help text into notes.md **
+**pipe this function's help text into notes.md**
 ```bash
   notes -h | notes
 ```
   
-** Multiline example into default file **
+**Multiline example into default file**
 ```bash
 notes<<NOTE
 >this is a longer multiline note
@@ -34,7 +34,7 @@ notes<<NOTE
 >NOTE
 ```
 
-** Multiline example with filename specified**
+**Multiline example with filename specified**
 ```bash
 notes -f specific_file.md<<NOTE
 >this is a longer multiline note
@@ -44,4 +44,21 @@ notes -f specific_file.md<<NOTE
 >NOTE
 ```
 
-#### Not Windows compatible (filepath is hardcoded and UNIXy)!
+### Installation
+
+Clone the project to a `.bash` folder in your home directory:
+
+```bash
+mkdir ~/.bash
+cd ~/.bash
+git clone git://github.com/colmose/notes.git
+```
+
+Edit your `~/.bash_profile` or `~/.profile` or `~/.bashrc` (for Ubuntu) and add the following to the top:
+
+```bash
+export GITAWAREPROMPT=~/.bash/notes
+source "${GITAWAREPROMPT}/notes.sh"
+```
+
+#### Not Windows compatible!

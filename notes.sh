@@ -30,17 +30,18 @@ usage() {
   echo "  >This example writes to specific_file.md"
   echo "  >as the -f flag has been passed."
   echo "  >NOTE"
-  return 0
 }
 
 notes() {
-  local OPTIND OPTION f NOTEFILE NOTEDIR
+  local OPTIND OPTION fh NOTEFILE NOTEDIR
   NOTEDIR="$HOME/Documents/notes"
   NOTEFILE="notes.md"
   while getopts "hf:" OPTION; do
     case $OPTION in
       h)
-        usage      
+        usage
+        shift $((OPTIND - 1))
+        return 0
         ;;
       f)
         NOTEFILE=$OPTARG
